@@ -12,8 +12,6 @@ from todo import (
     todo,
 )
 
-from todo import __app_name__, __version__, cli
-
 runner = CliRunner()
 
 test_data1 = {
