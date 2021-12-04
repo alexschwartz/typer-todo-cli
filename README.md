@@ -4,6 +4,29 @@ Todo CLI application built with Typer Easy to code. Based on Python type hints.
 
 > To learn more about ConfigParser [Click Here](https://zetcode.com/python/configparser/)
 
+### To get started follow these steps
+
+1. Create Virtual Environment and Activate It
+
+```shell
+> python -m venv env
+> source env/bin/activate
+```
+
+2. Install Dependencies
+
+```shell
+> pip install -r requirements.txt
+```
+
+3. Run the below command to see all available options
+
+```shell
+> python -m todo --help
+```
+
+> Available options
+
 ```
 Usage: todo [OPTIONS] COMMAND [ARGS]...
 
