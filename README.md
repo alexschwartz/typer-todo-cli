@@ -47,3 +47,12 @@ Commands:
   remove    Remove a to-do using its TODO_ID.
 
 ```
+
+4. Add/Run Tests (Optional)
+
+   > You can add more tests to `tests/test_todo.py`
+
+```shell
+# run tests
+> python -m pytest tests/.
+```
