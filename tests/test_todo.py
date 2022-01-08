@@ -27,7 +27,7 @@ test_data2 = {
     "description": ["Write a blog on seo"],
     "priority": 2,
     "todo": {
-        "Description": "Write a blog on seo",
+        "Description": "Write a blog on seo.",
         "Priority": 2,
         "Done": False,
     },
