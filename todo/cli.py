@@ -204,7 +204,7 @@ def _version_callback(value: bool) -> None:
         raise typer.Exit()
 
 
-@ app.callback()
+@app.callback()
 def main(
     version: Optional[bool] = typer.Option(
         None,
