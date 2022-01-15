@@ -8,10 +8,10 @@ import typer
 
 from todo import __app_name__, __version__, ERRORS, config, database, todo
 
-app = typer.Typer()
+todo_cli = typer.Typer()
 
 
-@app.command()
+@todo_cli.command()
 def init(
     db_path: str = typer.Option(
         str(database.DEFAULT_DB_FILE_PATH),
@@ -39,7 +39,7 @@ def init(
         typer.secho(f"The to-do database is {db_path}", fg=typer.colors.GREEN)
 
 
-@app.command()
+@todo_cli.command()
 def add(
     description: List[str] = typer.Argument(...),
     priority: int = typer.Option(2, "--priority", "-p", min=1, max=3),
@@ -60,7 +60,7 @@ def add(
         )
 
 
-@app.command(name="list")
+@todo_cli.command(name="list")
 def list_all() -> None:
     """List all to-dos."""
     todoer = get_todoer()
@@ -92,7 +92,7 @@ def list_all() -> None:
     typer.secho("-" * len(headers) + "\n", fg=typer.colors.BLUE)
 
 
-@app.command(name="complete")
+@todo_cli.command(name="complete")
 def set_done(todo_id: int = typer.Argument(...)) -> None:
     """Complete a to-do by setting it as done using its TODO_ID."""
     todoer = get_todoer()
@@ -110,7 +110,7 @@ def set_done(todo_id: int = typer.Argument(...)) -> None:
         )
 
 
-@app.command()
+@todo_cli.command()
 def remove(
     todo_id: int = typer.Argument(...),
     force: bool = typer.Option(
@@ -155,7 +155,7 @@ def remove(
             typer.echo("Operation canceled")
 
 
-@app.command(name="clear")
+@todo_cli.command(name="clear")
 def remove_all(
     force: bool = typer.Option(
         ...,
@@ -198,20 +198,20 @@ def get_todoer() -> todo.Todoer:
         raise typer.Exit(1)
 
 
-def _version_callback(value: bool) -> None:
+def callback(value: bool) -> None:
     if value:
         typer.echo(f"{__app_name__} v{__version__}")
         raise typer.Exit()
 
 
-@app.callback()
+@todo_cli.callback()
 def main(
     version: Optional[bool] = typer.Option(
         None,
         "--version",
         "-v",
         help="Show the application's version and exit.",
-        callback=_version_callback,
+        callback=callback,
         is_eager=True,
     )
 ) -> None:
