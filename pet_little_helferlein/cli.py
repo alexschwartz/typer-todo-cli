@@ -10,7 +10,7 @@ from pet_little_helferlein import __app_name__, __version__
 
 cli = typer.Typer()
 
-@cli.command(name="invoke")
+@cli.command()
 def remove(
     todo_id: int = typer.Argument(...),
     force: bool = typer.Option(
@@ -25,7 +25,7 @@ def remove(
     typer.secho("Invalid TODO_ID", fg=typer.colors.RED)
     raise typer.Exit(1)
 
-@cli.command()
+@cli.command(name="invoke")
 def invoke(
     cmd: str = typer.Argument(...),
     force: bool = typer.Option(
