@@ -1,7 +1,7 @@
 """Top-level package for To-Do."""
-# todo/__init__.py
+# pet_little_helferlein/__init__.py
 
-__app_name__ = "todo"
+__app_name__ = "pet_little_helferlein"
 __version__ = "0.1.0"
 
 (
