@@ -13,18 +13,14 @@ from pet_little_helferlein import (
 
 runner = CliRunner()
 
-test_data1 = {
-    "description": ["Write", "a", "blog", "on", "JavaScript libraries"],
-    "priority": 1,
-    "todo": {
-        "Description": "Write a blog on JavaScript libraries.",
-        "Priority": 1,
-        "Done": False,
-    },
-}
 
 def test_version():
     result = runner.invoke(cli.cli, ["--version"])
+    assert result.exit_code == 0
+    assert f"{__app_name__} v{__version__}\n" in result.stdout
+
+def test_invoke():
+    result = runner.invoke(cli.cli, ["invoke"])
     assert result.exit_code == 0
     assert f"{__app_name__} v{__version__}\n" in result.stdout
 
