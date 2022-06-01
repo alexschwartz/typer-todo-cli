@@ -10,7 +10,7 @@ from pet_little_helferlein import __app_name__, __version__
 
 cli = typer.Typer()
 
-@cli.command()
+@cli.command(name="invoke")
 def remove(
     todo_id: int = typer.Argument(...),
     force: bool = typer.Option(
