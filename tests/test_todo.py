@@ -3,13 +3,12 @@ import json
 import pytest
 from typer.testing import CliRunner
 
-from todo import (
+from pet_little_helferlein import (
     DB_READ_ERROR,
     SUCCESS,
     __app_name__,
     __version__,
-    cli,
-    todo,
+    cli
 )
 
 runner = CliRunner()
@@ -35,7 +34,7 @@ test_data2 = {
 
 
 def test_version():
-    result = runner.invoke(cli.todo_cli, ["--version"])
+    result = runner.invoke(cli.cli, ["--version"])
     assert result.exit_code == 0
     assert f"{__app_name__} v{__version__}\n" in result.stdout
 
