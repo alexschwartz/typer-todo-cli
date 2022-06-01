@@ -25,6 +25,21 @@ def remove(
     typer.secho("Invalid TODO_ID", fg=typer.colors.RED)
     raise typer.Exit(1)
 
+@cli.command()
+def invoke(
+    cmd: str = typer.Argument(...),
+    force: bool = typer.Option(
+        False,
+        "--force",
+        "-f",
+        help="Force deletion without confirmation.",
+    ),
+) -> None:
+    """Invoke a command."""
+
+    typer.secho("Invalid TODO_ID", fg=typer.colors.RED)
+    raise typer.Exit(1)
+
 
 def callback(value: bool) -> None:
     if value:
