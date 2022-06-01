@@ -37,7 +37,7 @@ def invoke(
 ) -> None:
     """Invoke a command."""
 
-    typer.secho("Invalid TODO_ID", fg=typer.colors.RED)
+    typer.secho("Invoking command {cmd}", fg=typer.colors.RED)
     raise typer.Exit(1)
 
 
