@@ -20,7 +20,7 @@ def test_version():
     assert f"{__app_name__} v{__version__}\n" in result.stdout
 
 def test_invoke():
-    result = runner.invoke(cli.cli, ["invoke"])
+    result = runner.invoke(cli.cli, ["invoke", "ls"])
     assert result.exit_code == 0
     assert f"{__app_name__} v{__version__}\n" in result.stdout
 
